@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Triângulos</title>
+  <style>
+    body {
+        background-color: rgb(155, 172, 172);
+    }
+ form {
+    text-align: center;
+ }
+
+ h1 {
+    text-align: center; 
+ }
+
+ button {
+    margin-top: 20px
+ }
+  </style>
+</head>
+<body>
+  <h1>Calculadora de Triângulos</h1>
+  <form>
+    <label for="lado1">Comprimento do lado 1:</label>
+    <input type="numero" id="lado1" name="lado1" required>
+    <br>
+    <label for="lado2">Comprimento do lado 2:</label>
+    <input type="numero" id="lado2" name="lado2" required>
+    <br>
+    <label for="lado3">Comprimento do lado 3:</label>
+    <input type="numero" id="lado3" name="lado3" required>
+    <br>
+    <button type="button" onclick="triangleType()">Calcular</button>
+  </form>
+  <p id="result"></p>
+  <script>
+    function triangleType() {
+
+      var lado1 = document.getElementById("lado1").value;
+      var lado2 = document.getElementById("lado2").value;
+      var lado3 = document.getElementById("lado3").value;
+
+      // Check if the triangle is equilateral
+      if (lado1 === lado2 && lado2 === lado3) {
+        document.getElementById("result").innerHTML = "O triângulo é equilátero.";
+      }
+      // Check if the triangle is isosceles
+      else if (lado1 === lado2 || lado2 === lado3 || lado1 === lado3) {
+        document.getElementById("result").innerHTML = "O triângulo é isósceles.";
+      }
+      else {
+        document.getElementById("result").innerHTML = "O triângulo é escaleno.";
+      }
+    }
+  </script>
+</body>
+</html>
